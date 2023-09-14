@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: bitwarden
+    restart: always
+    ports:
+      - 8083:80
+    environment:
+      - WEBSOCKET_ENABLED=false
+      - SIGNUPS_ALLOWED=true
+      - SHOW_PASSWORD_HINT=false
+      - ROCKET_WORKERS=10
+    volumes:
+      - /home/our-server/Documents/containers/bitwarden/data:/data
+      - /home/our-server/Documents/containers/bitwarden/config:/config
+      - /home/our-server/Documents/containers/bitwarden/ssl:/ssl

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  transmission:
+    image: linuxserver/transmission
+    container_name: transmission
+    environment:
+      #- TRANSMISSION_WEB_HOME=/combustion-release/
+      - USER=server
+      - PASS=server
+    volumes:
+      - /home/our-server/Documents/containers/jellyfin/media:/downloads
+      - /home/our-server/Documents/containers/transmission/config:/config
+      - /home/our-server/Documents/containers/transmission/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
+

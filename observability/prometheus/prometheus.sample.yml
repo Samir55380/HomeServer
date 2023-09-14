@@ -1,0 +1,8 @@
+scrape_configs:
+  - job_name: '{JOB_NAME}'
+    metrics_path: '{API_PROMETHEUS_PATH}'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['{IP}:{PORT}']
+        labels:
+          application: '{NAME}'

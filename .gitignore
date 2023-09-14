@@ -1,0 +1,17 @@
+bitwarden/data/
+bitwarden/*.crt
+bitwarden/*.key
+heimdall/config/
+jellyfin/config/
+jellyfin/cache/
+jellyfin/media/
+jellyfin/media2/
+keys/
+nextcloud/db/
+nextcloud/nextcloud/
+observability/grafana/
+observability/prometheus/prometheus.yml
+portainer/portainer_data/
+transmission/config/
+transmission/watch/
+yacht/config/
