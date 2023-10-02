@@ -3,8 +3,10 @@ services:
   yacht:
     image: selfhostedpro/yacht:latest
     container_name: yacht
+    env_file:
+      - ../docker/common.env
     ports:
-      - "8000:8000"
+      - "${YACHT_PORT}:8000"
     volumes:
       - ./config:/config
       - /var/run/docker.sock:/var/run/docker.sock

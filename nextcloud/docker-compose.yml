@@ -6,7 +6,7 @@ services:
     restart: always
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
-      - /home/our-server/Documents/containers/nextcloud/db:/var/lib/mysql
+      - /home/${USER}/Documents/containers/nextcloud/db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=server
       - MYSQL_PASSWORD=server
@@ -16,12 +16,14 @@ services:
   app:
     image: nextcloud
     restart: always
+    env_file:
+      - ../docker/common.env
     ports:
-      - 8082:80
+      - "${NEXTCLOUD_PORT}:80"
     links:
       - db
     volumes:
-      - /home/our-server/Documents/containers/nextcloud/nextcloud:/var/www/html
+      - /home/${USER}/Documents/containers/nextcloud/nextcloud:/var/www/html
     environment:
       - MYSQL_PASSWORD=server
       - MYSQL_DATABASE=nextcloud

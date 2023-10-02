@@ -3,15 +3,17 @@ services:
   jellyfin:
     image: jellyfin/jellyfin
     container_name: jellyfin
+    env_file:
+      - ../docker/common.env
     #network_mode: 'host'
     volumes:
-      - /home/our-server/Documents/containers/jellyfin/config:/config
-      - /home/our-server/Documents/containers/jellyfin/cache:/cache
-      - /home/our-server/Documents/containers/jellyfin/media:/media
-      - /home/our-server/Documents/containers/jellyfin/media2:/media2:ro
+      - /home/${USER}/Documents/containers/jellyfin/config:/config
+      - /home/${USER}/Documents/containers/jellyfin/cache:/cache
+      - /home/${USER}/Documents/containers/jellyfin/media:/media
+      - /home/${USER}/Documents/containers/jellyfin/media2:/media2:ro
     ports:
-      - "8096:8096"
-      - "8920:8920"
+      - "${JELLYFIN_PORT_1}:8096"
+      - "${JELLYFIN_PORT_2}:8920"
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
     environment:

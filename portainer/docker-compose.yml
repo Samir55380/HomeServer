@@ -5,11 +5,13 @@ services:
     image: portainer/portainer-ce
     container_name: portainer
     restart: always
+    env_file:
+      - ../docker/common.env
     ports:
-      - "9000:9000"
+      - "${PORTAINER_PORT}:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/our-server/Documents/containers/portainer/portainer_data:/data
+      - /home/${USER}/Documents/containers/portainer/portainer_data:/data
 
 volumes:
   portainer_data:

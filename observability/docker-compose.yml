@@ -5,23 +5,27 @@ services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus-container
+    env_file:
+      - ../docker/common.env
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
-      - "9090:9090"
+      - "${PROMETHEUS_PORT}:9090"
     restart: always
 
 
   grafana:
     image: grafana/grafana-oss:9.1.4
     user: "$UID:$GID"
+    env_file:
+      - ../docker/common.env
     container_name: grafana-container
     depends_on:
       - prometheus
     ports:
-      - "3000:3000"
+      - "${GRAFANA_PORT}:3000"
     volumes:
       - ./grafana/:/var/lib/grafana
     environment:

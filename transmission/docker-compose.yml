@@ -4,16 +4,18 @@ services:
   transmission:
     image: linuxserver/transmission
     container_name: transmission
+    env_file:
+      - ../docker/common.env
     environment:
       #- TRANSMISSION_WEB_HOME=/combustion-release/
       - USER=server
       - PASS=server
     volumes:
-      - /home/our-server/Documents/containers/jellyfin/media:/downloads
-      - /home/our-server/Documents/containers/transmission/config:/config
-      - /home/our-server/Documents/containers/transmission/watch:/watch
+      - /home/${USER}/Documents/containers/jellyfin/media:/downloads
+      - /home/${USER}/Documents/containers/transmission/config:/config
+      - /home/${USER}/Documents/containers/transmission/watch:/watch
     ports:
-      - 9091:9091
+      - "${TRANSMISSION_PORT}:9091"
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped

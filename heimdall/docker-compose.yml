@@ -1,15 +1,17 @@
-version: "2.1"
+version: "3.8"
 services:
   heimdall:
     image: linuxserver/heimdall:latest
     container_name: heimdall
+    ports:
+      - "${HEIMDALL_PORT}:80"
+      #- 443:443
+    env_file:
+      - ../docker/common.env
     volumes:
-      - /home/our-server/Documents/containers/heimdall/config:/config
+      - /home/${USER}/Documents/containers/heimdall/config:/config
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-    ports:
-      - 8005:80
-      #- 443:443
     restart: unless-stopped
