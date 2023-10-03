@@ -4,7 +4,7 @@ services:
     image: selfhostedpro/yacht:latest
     container_name: yacht
     env_file:
-      - ../docker/common.env
+      - .env
     ports:
       - "${YACHT_PORT}:8000"
     volumes:

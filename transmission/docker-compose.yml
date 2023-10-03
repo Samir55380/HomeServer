@@ -5,7 +5,7 @@ services:
     image: linuxserver/transmission
     container_name: transmission
     env_file:
-      - ../docker/common.env
+      - .env
     environment:
       #- TRANSMISSION_WEB_HOME=/combustion-release/
       - USER=server
