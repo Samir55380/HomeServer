@@ -4,7 +4,7 @@ services:
     image: jellyfin/jellyfin
     container_name: jellyfin
     env_file:
-      - ../docker/common.env
+      - .env
     #network_mode: 'host'
     volumes:
       - /home/${USER}/Documents/containers/jellyfin/config:/config

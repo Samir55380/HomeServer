@@ -17,7 +17,7 @@ services:
     image: nextcloud
     restart: always
     env_file:
-      - ../docker/common.env
+      - .env
     ports:
       - "${NEXTCLOUD_PORT}:80"
     links:

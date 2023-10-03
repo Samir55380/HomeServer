@@ -7,7 +7,7 @@ services:
       - "${HEIMDALL_PORT}:80"
       #- 443:443
     env_file:
-      - ../docker/common.env
+      - .env
     volumes:
       - /home/${USER}/Documents/containers/heimdall/config:/config
     environment:
