@@ -12,11 +12,11 @@
 - Yacht
 ## Installing using Makefile:
 ### Step 0
-#### Before running the containers, make sure in .env of each one of them that ports are not being used already by one of your processes
+ Before running the containers, make sure in .env of each one of them that ports are not being used already by one of your processes
 ### Step 1
-#### Git checkkout/clone project into a path of your choice
+Git checkout/clone project into a path of your choice
 ### Step 2
-#### Make sure you have Make installed and run following command:
+Make sure you have Make installed and run following command:
 ```
 make run
 ```
