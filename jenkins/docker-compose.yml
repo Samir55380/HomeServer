@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile  # Name of your Dockerfile (assuming it's named Dockerfile)
     privileged: true
     env_file:
-      - ../docker/common.env
+      - .env
     user: root
     ports:
     - "${JENKINS_PORT_1}:8080"
