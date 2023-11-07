@@ -1,4 +1,5 @@
 bitwarden/data/
+bitwarden/ssl/
 bitwarden/*.crt
 bitwarden/*.key
 heimdall/config/
