@@ -5,6 +5,7 @@ services:
       context: ./docker  # Specify the path to the folder containing your Dockerfile
       dockerfile: Dockerfile  # Name of your Dockerfile (assuming it's named Dockerfile)
     privileged: true
+    restart: always
     env_file:
       - .env
     user: root
